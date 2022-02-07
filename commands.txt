@@ -1,0 +1,69 @@
+1)To install react-router-dom
+  npm install react-router-dom@5.2.0
+
+2)To install formik,
+  npm install formik --save
+
+3)To install yup,
+  npm install -S yup
+
+4)To install Bootstrap
+  npm i bootstrap
+  import 'bootstrap/dist/css/bootstrap.css'; add in app.js file
+
+5)To install Sass
+  npm install node-sass
+
+6)To install React Date Picker
+  npm install react-datepicker --save
+
+7)To install axios
+  npm install axios
+
+8)To install sweetalert
+  npm install sweetalert
+
+    // State variable & function
+    const[customerDOB,setCustomerDOB] = useState(null);
+
+    // Event Handler as callback function-7
+    const handleCustomerDOB = (date) => {
+        // Invoke state function
+        setCustomerDOB(date);
+    }
+
+    axios
+        .post(baseUrl,values,{
+            headers:{
+                'Content-Type' : 'application/json'
+            }
+        })
+
+        // success
+        .then((response) => {
+            // Declared & Assigned
+            const result = response.data;
+
+            if (result.hasOwnProperty('errors')) {
+                swal(result.errors);
+            } else {
+                // Invoke SweetAlert
+                swal({
+                    icon: 'success',
+                    title: 'Customer saved successfully'
+                });
+            }
+        })
+
+        // failure
+        .catch((error) => {
+            swal(error.message);
+        })
+    // To reset form
+    resetForm({values:""});
+
+    <ButtonTwo
+                            text = 'save & next'
+                            bgColor = 'bgColorValue'
+                            onClickEvent = {handleSubmit}
+                        />
