@@ -46,12 +46,11 @@ const Footer = () => {
                 </div>
                 {/* end of col-4 */}
 
-
             </div>
             {/* end of row */}
             
         </footer>
     )
-};
+}
 
 export default Footer;

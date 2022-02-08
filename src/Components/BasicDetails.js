@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import Buttons from '../Reusable/Buttons';
 
@@ -41,6 +41,7 @@ const initialValues = {
     "lastupdatedby": "RS",
     "lastupdateddate": "2022-11-01"
 }
+
 
 // Step-2
 const onSubmit = (values,{resetForm}) => {
@@ -89,6 +90,8 @@ const BasicDetails = (props) => {
         console.log(date);
     }
 
+    console.log('hello',props);
+
     return <>
         <p className='lead mx-2'>
             Please provide your basic details:            
@@ -99,404 +102,444 @@ const BasicDetails = (props) => {
             <form autoComplete='off'>
 
                 {/* 1 */}
-                <div className='form-group row mb-2'>
+                <div className='row mb-2'>
 
-                    <label 
-                        className='text-capitalize col-sm-5 col-form-label'
-                    >
-                        <h5>
-                            customer <span className='text-uppercase'>
-                                id* 
-                            </span>
-                        </h5>
-                                
-                    </label>
+                    {/* col-1 */}
+                    <div className='col-md-6'>
 
-                    <div className='col-sm-7'>
-                        <input
-                            type='text'
-                            className='form-control'
-                            name='custid'
-                            value={values.custid}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
-
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.custid && touched.custid) && <span className='text-danger'> {errors.custid} </span>
-                            )
-                        }
-
-                    </div>
-
-                </div>
-
-                {/* 2 */}
-                <div className='form-group row mb-2'>
-
-                    <label 
-                        className='col-sm-5 col-form-label'
-                    >
-                        <h5 className='text-capitalize'>
-                            title<span>
-                                * 
-                            </span>
-                        </h5>
-                                
-                    </label>
-
-                    <div className='col-sm-7'>
-                        <select
-                            className='form-control widthDrop'
-                            name='title'
-                            value={values.title}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
+                        <label 
+                            className='text-capitalize'
                         >
+                            <h5>
+                                customer <span className='text-uppercase'>
+                                    id* 
+                                </span>
+                            </h5>
+                                    
+                        </label>
 
-                            <option>
-                                -- Title --
-                            </option>
+                        <>
 
-                            {/* Embed Expression */}
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='custid'
+                                value={values.custid}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+
+                            {/* Conditional Rendering Simple...if */}
                             {
-                                titles.sort().map((ele,index) => {
-                                    return(
-                                        <option
-                                            key={index}
-                                            value={ele}
-                                            className='form-control'
-                                        >
-                                            {ele}
-                                        </option>
-                                    )
-                                })
+                                (
+                                    (errors.custid && touched.custid) && <span className='text-danger'> {errors.custid} </span>
+                                )
                             }
-                        </select>
 
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.title && touched.title) && <span className='text-danger'> {errors.title} </span> 
-                            )
-                        }
+                        </>
+
                     </div>
+                    {/* end of col-1 */}
+
+                    {/* col-2 */}
+                    <div className='col-md-6'>
+
+                        <label>
+                            <h5 className='text-capitalize'>
+                                title<span>
+                                    * 
+                                </span>
+                            </h5>
+                                    
+                        </label>
+
+                        <>
+                            <select
+                                className='form-control widthDro'
+                                name='title'
+                                value={values.title}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            >
+
+                                <option>
+                                    -- Title --
+                                </option>
+
+                                {/* Embed Expression */}
+                                {
+                                    titles.sort().map((ele,index) => {
+                                        return(
+                                            <option
+                                                key={index}
+                                                value={ele}
+                                                className='form-control'
+                                            >
+                                                {ele}
+                                            </option>
+                                        )
+                                    })
+                                }
+                            </select>
+
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.title && touched.title) && <span className='text-danger'> {errors.title} </span> 
+                                )
+                            }
+                        </>
                         
+                    </div>
+                    {/* end of col-2 */}
+                    
+                </div>
+                
+                {/* 2 */}
+                <div className='row mb-2'>
+
+                    {/* col-1 */}
+                    <div className='col-md-6'>
+
+                        <label className='text-capitalize'>
+                            <h5>
+                                first name<span>
+                                    * 
+                                </span>
+                            </h5>
+                                
+                        </label>
+
+                        <>
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='firstname'
+                                value={values.firstname}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.firstname && touched.firstname) && <span className='text-danger'> {errors.firstname} </span> 
+                                )
+                            }
+                        </>
+
+                    </div>
+                    {/* end of col-1 */}
+
+                    {/* col-2 */}
+                    <div className='col-md-6'>
+
+                        <label className='text-capitalize'>
+                            <h5>
+                                middle name
+                            </h5> 
+                        </label>
+
+                        <>
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='middlename'
+                                value={values.middlename}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.middlename && touched.middlename) && <span className='text-danger'> {errors.middlename} </span> 
+                                )
+                            }
+                        </>
+                
+                    </div>
+                    {/* end of col-2 */}
+
                 </div>
 
                 {/* 3 */}
-                <div className='form-group row mb-2'>
-                    <label className='text-capitalize col-sm-5 col-form-label'>
-                        <h5>
-                            first name<span>
-                                * 
-                            </span>
-                        </h5>
-                            
-                    </label>
+                <div className='row mb-2'>
 
-                    <div className='col-sm-7'>
-                        <input
-                            type='text'
-                            className='form-control'
-                            name='firstname'
-                            value={values.firstname}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
+                    {/* col-1 */}
+                    <div className='col-md-6'>
 
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.firstname && touched.firstname) && <span className='text-danger'> {errors.firstname} </span> 
-                            )
-                        }
-                    </div>
-                </div>
-
-                {/* 4 */}
-                <div className='form-group row mb-2'>
-                    <label className='text-capitalize col-sm-5'>
-                        <h5>
-                            middle name
-                        </h5> 
-                    </label>
-
-                    <div className='col-sm-7'>
-                        <input
-                            type='text'
-                            className='form-control'
-                            name='middlename'
-                            value={values.middlename}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
-
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.middlename && touched.middlename) && <span className='text-danger'> {errors.middlename} </span> 
-                            )
-                        }
-                    </div>
-                        
-                </div>
-
-                {/* 5 */}
-                <div className='form-group row mb-2'>
-                        <label className='text-capitalize col-sm-5'>
+                        <label className='text-capitalize'>
                             <h5>
                                 last name<span>
                                     * 
                                 </span>
                             </h5>
-                            
                         </label>
 
-                    <div className='col-sm-7'>
-                        <input
-                            type='text'
-                            className='form-control'
-                            name='lastname'
-                            value={values.lastname}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
+                        <>
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='lastname'
+                                value={values.lastname}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
 
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.lastname && touched.lastname) && <span className='text-danger'> {errors.lastname} </span> 
-                            )
-                        }
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.lastname && touched.lastname) && <span className='text-danger'> {errors.lastname} </span> 
+                                )
+                            }
+                        </>
                     </div>
+                    {/* end of col-1 */}
+
+                    {/* col-2 */}
+                    <div className='col-md-6'>
+
+                        <label className='text-capitalize'>
+                            <h5>
+                                alias
+                            </h5>
+                                
+                        </label>
+        
+                        <>
+                            <input
+                                type='text'
+                                className='form-control'
+                                name='alias'
+                                value={values.alias}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            />
+
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.alias && touched.alias) && <span className='text-danger'> {errors.alias} </span> 
+                                )
+                            }
+                        </>
+                        
+                    </div>
+                    {/* end of col-2 */}
+
+                        
                         
                 </div>
 
-                {/* 6 */}
-                <div className='form-group row mb-2'>
-                    <label className='text-capitalize col-sm-5'>
-                        <h5>
-                            alias
-                        </h5>
-                            
-                    </label>
-    
-                    <div className='col-sm-7'>
-                        <input
-                            type='text'
-                            className='form-control'
-                            name='alias'
-                            value={values.alias}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        />
+                {/* 4 */}
+                <div className='row mb-2'>
 
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.alias && touched.alias) && <span className='text-danger'> {errors.alias} </span> 
-                            )
-                        }
+                    {/* col-1 */}
+                    <div className='col-md-6'>
+
+                        <label className='text-capitalize'>
+                            <h5>
+                                date born<span>* </span>
+                            </h5>
+                        </label>
+        
+                        <>
+                            <DatePicker
+                                selected={values.dateborn}
+                                onChange={handleDateChange}
+                                dateFormat='dd/MM/yyyy'
+                                name='dateborn'
+                                // minDate={new Date()}
+                                // value={formik.values.dateborn}
+                                // onBlur={formik.handleBlur}
+                                className='form-control'
+                                placeholderText='DD/MM/YYYY'
+                                // maxDate={new Date()}
+                                isClearable
+                                showYearDropdown
+                                scrollableMonthYearDropdown
+                                // control='date'
+                            />
+
+                            {/* Conditional Rendering Simple...if */}
+                            {
+                                (
+                                    (errors.dateborn && touched.dateborn) && <span className='text-danger'> {errors.dateborn} </span>
+                                )
+                            }
+                        </>
+
                     </div>
-                        
-                </div>
+                    {/* end of col-1 */}
 
-                {/* 7 */}
-                <div className='form-group row mb-2'>
-                    <label className='text-capitalize col-sm-5'>
-                        <h5>
-                            date of birth<span> * </span>
-                        </h5>
-                    </label>
-    
-                    <div className='col-sm-7'>
-                        <DatePicker
-                            selected={values.dateborn}
-                            onChange={handleDateChange}
-                            dateFormat='dd/MM/yyyy'
-                            name='dateborn'
-                            // minDate={new Date()}
-                            // value={formik.values.dateborn}
-                            // onBlur={formik.handleBlur}
-                            className='form-control'
-                            placeholderText='DD/MM/YYYY'
-                            // maxDate={new Date()}
-                            isClearable
-                            showYearDropdown
-                            scrollableMonthYearDropdown
-                            // control='date'
-                        />
+                    {/* col-2 */}
+                    <div className='col-md-6'>
 
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.dateborn && touched.dateborn) && <span className='text-danger'> {errors.dateborn} </span>
-                            )
-                        }
+                        <label 
+                            className='text-capitalize'
+                        >
+                            <h5>
+                                gender<span>
+                                    * 
+                                </span>
+                            </h5>
+                                    
+                        </label>
+
+                        <>
+                            <select
+                                className='form-control'
+                                name='sex'
+                                value={values.sex}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            >
+
+                                <option>
+                                    -- Gender --
+                                </option>
+
+                                {/* Embed Expression */}
+                                {
+                                    gender.sort().map((ele,index) => {
+                                        return(
+                                            <option
+                                                key={index}
+                                                value={ele}
+                                                className='form-control'
+                                            >
+                                                {ele}
+                                            </option>
+                                        )
+                                    })
+                                }
+                            </select>
+
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.sex && touched.sex) && <span className='text-danger'> {errors.sex} </span> 
+                                )
+                            }
+                        </>
+                    
                     </div>
+                    {/* end of col-2 */}
+
+
+                    
                         
                 </div>
                 
-                {/* 8 */}
-                <div className='form-group row mb-2'>
+                {/* 5 */}
+                <div className='row mb-2'>
 
-                    <label 
-                        className='text-capitalize col-sm-5 col-form-label'
-                    >
-                        <h5>
-                            gender<span>
-                                * 
-                            </span>
-                        </h5>
-                                
-                    </label>
+                    {/* col-1 */}
+                    <div className='col-md-6'>
 
-                    <div className='col-sm-7'>
-                        <select
-                            className='form-control widthDrop'
-                            name='sex'
-                            value={values.sex}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
+                        <label 
+                            className='text-capitalize'
                         >
+                            <h5>
+                                marital status<span>
+                                    * 
+                                </span>
+                            </h5>
+                                    
+                        </label>
 
-                            <option>
-                                -- Gender --
-                            </option>
+                        <>
+                            <select
+                                className='form-control'
+                                name='maritalstat'
+                                value={values.maritalstat}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            >
 
-                            {/* Embed Expression */}
+                                <option>
+                                    -- marital status --
+                                </option>
+
+                                {/* Embed Expression */}
+                                {
+                                    relationship.sort().map((ele,index) => {
+                                        return(
+                                            <option
+                                                key={index}
+                                                value={ele}
+                                                className='form-control'
+                                            >
+                                                {ele}
+                                            </option>
+                                        )
+                                    })
+                                }
+                            </select>
+                            {/* Conditional Rendering - Simple...if */}
                             {
-                                gender.sort().map((ele,index) => {
-                                    return(
-                                        <option
-                                            key={index}
-                                            value={ele}
-                                            className='form-control'
-                                        >
-                                            {ele}
-                                        </option>
-                                    )
-                                })
+                                (
+                                    (errors.maritalstat && touched.maritalstat) && <span className='text-danger'> {errors.maritalstat} </span> 
+                                )
                             }
-                        </select>
-
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.sex && touched.sex) && <span className='text-danger'> {errors.sex} </span> 
-                            )
-                        }
-                    </div>
+                        </>
                         
+                    </div>
+                    {/* end of col-1 */}
+
+                    {/* col-2 */}
+                    <div className='col-md-6'>
+
+                        <label>
+                            <h5 className='text-capitalize'>
+                                nationality<span>
+                                    * 
+                                </span>
+                            </h5>
+                                    
+                        </label>
+
+                        <>
+                            <select
+                                className='form-control'
+                                name='nationality'
+                                value={values.nationality}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                            >
+
+                                <option>
+                                    -- nationality --
+                                </option>
+
+                                {/* Embed Expression */}
+                                {
+                                    nationality.sort().map((ele,index) => {
+                                        return(
+                                            <option
+                                                key={index}
+                                                value={ele}
+                                                className='form-control'
+                                            >
+                                                {ele}
+                                            </option>
+                                        )
+                                    })
+                                }
+                            </select>
+                            {/* Conditional Rendering - Simple...if */}
+                            {
+                                (
+                                    (errors.nationality && touched.nationality) && <span className='text-danger'> {errors.nationality} </span> 
+                                )
+                            }
+                        </>
+                        
+                    </div>
+                    {/* end of col-2 */}        
                 </div>
                 
-                {/* 9 */}
-                <div className='form-group row mb-2'>
-
-                    <label 
-                        className='text-capitalize col-sm-5 col-form-label'
-                    >
-                        <h5>
-                            marital status<span>
-                                * 
-                            </span>
-                        </h5>
-                                
-                    </label>
-
-                    <div className='col-sm-7'>
-                        <select
-                            className='form-control widthDrop'
-                            name='maritalstat'
-                            value={values.maritalstat}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        >
-
-                            <option>
-                                -- marital status --
-                            </option>
-
-                            {/* Embed Expression */}
-                            {
-                                relationship.sort().map((ele,index) => {
-                                    return(
-                                        <option
-                                            key={index}
-                                            value={ele}
-                                            className='form-control'
-                                        >
-                                            {ele}
-                                        </option>
-                                    )
-                                })
-                            }
-                        </select>
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.maritalstat && touched.maritalstat) && <span className='text-danger'> {errors.maritalstat} </span> 
-                            )
-                        }
-                    </div>
-                        
-                </div>
-                
-                {/* 10 */}
-                <div className='form-group row mb-2'>
-
-                    <label 
-                        className='col-sm-5 col-form-label'
-                    >
-                        <h5 className='text-capitalize'>
-                            nationality<span>
-                                * 
-                            </span>
-                        </h5>
-                                
-                    </label>
-
-                    <div className='col-sm-7'>
-                        <select
-                            className='form-control widthDrop'
-                            name='nationality'
-                            value={values.nationality}
-                            onChange={handleChange}
-                            onBlur={handleBlur}
-                        >
-
-                            <option>
-                                -- nationality --
-                            </option>
-
-                            {/* Embed Expression */}
-                            {
-                                nationality.sort().map((ele,index) => {
-                                    return(
-                                        <option
-                                            key={index}
-                                            value={ele}
-                                            className='form-control'
-                                        >
-                                            {ele}
-                                        </option>
-                                    )
-                                })
-                            }
-                        </select>
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.nationality && touched.nationality) && <span className='text-danger'> {errors.nationality} </span> 
-                            )
-                        }
-                    </div>
-                        
-                </div>
-
                 {/* Buttons Component */}
                 <div className='buttonsElements d-flex justify-content-end align-items-center'>
                     {/* Child Component Instances */}
@@ -507,13 +550,11 @@ const BasicDetails = (props) => {
                     <Link
                         to='/address'
                     >
-
                         <ButtonTwo
                             text = 'save & next'
                             bgColor = 'bgColorValue'
                             onClickEvent = {handleSubmit}
                         />
-                        
                     </Link>
 
                     <Switch>

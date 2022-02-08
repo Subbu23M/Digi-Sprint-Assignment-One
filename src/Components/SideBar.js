@@ -12,11 +12,15 @@ import ContactDetails from './ContactDetails';
 
 import { SideBarData } from './SideBarData';
 
-const SideBar = () => {
+const SideBar = (props) => {
     // Inline CSS
     const removeUnderLine = {
         textDecoration:'none'
     }
+
+    // Object Destructuring - ES6
+    // const {formData} = props;
+    // console.log(props);
 
     return <>
         {/* row */}
@@ -76,21 +80,18 @@ const SideBar = () => {
             <div className='col-lg-4 mx-auto mt-2'>
 
                 <Switch>
-                    
                     <Route
                         path='/basic'
                         component={BasicDetails}
-                        exact
+                        formData={props.formData}
                     />
                     <Route
                         path='/address'
                         component={AddressDetails}
-                        exact
                     />
                     <Route
                         path='/contact'
                         component={ContactDetails}
-                        exact
                     />
                 </Switch>
             </div>

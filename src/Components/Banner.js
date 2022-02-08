@@ -13,6 +13,7 @@ const Banner = () => {
                     <img
                         src={bannerImage}
                         className='bannerImage'
+                        alt='bannerImage'
                     />
 
                 </div>
@@ -20,9 +21,7 @@ const Banner = () => {
 
             </div>
             {/* end of row */}
-
         </section>
     )
-};
-
+}
 export default Banner;

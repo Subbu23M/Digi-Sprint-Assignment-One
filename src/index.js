@@ -9,7 +9,7 @@ const rootElement = document.getElementById('root');
 
 const jsx = (
     <BrowserRouter>
-            <App />
+        <App />
     </BrowserRouter>
 )
 

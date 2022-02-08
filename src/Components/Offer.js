@@ -19,6 +19,7 @@ const Offer = () => {
                     <img
                         src={sofaImage}
                         className='sofaImage'
+                        alt='sofaImage'
                     />
 
                 </div>
@@ -34,22 +35,23 @@ const Offer = () => {
                     <img
                         src={wowImage}
                         className='wowImage'
+                        alt='wowImage'
                     />
 
                     <img
                         src={excite}
                         className='exciteImage'
+                        alt='exciteImage'
                     />
 
                 </div>
                 {/* end of col-2 */}
-
 
             </div>
             {/* end of row */}
 
         </section>
     )
-};
+}
 
 export default Offer;
