@@ -62,8 +62,4 @@
     // To reset form
     resetForm({values:""});
 
-    <ButtonTwo
-                            text = 'save & next'
-                            bgColor = 'bgColorValue'
-                            onClickEvent = {handleSubmit}
-                        />
+    

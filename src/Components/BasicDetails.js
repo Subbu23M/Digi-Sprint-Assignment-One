@@ -520,7 +520,11 @@ const BasicDetails = (props) => {
                         to='/address'
                     >
 
-                        Save & Next
+                        <ButtonTwo
+                            text = 'save & next'
+                            bgColor = 'bgColorValue'
+                            onClickEvent = {handleSubmit}
+                        />
                         
                     </Link>
 
@@ -529,7 +533,6 @@ const BasicDetails = (props) => {
                             path='address'
                             component={AddressDetails}
                         >
-
                         </Route>
                     </Switch>
                     
