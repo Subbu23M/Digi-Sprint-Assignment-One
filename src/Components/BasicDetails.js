@@ -1,10 +1,8 @@
-import React,{useState} from 'react';
+import React from 'react';
 
 import Buttons from '../Reusable/Buttons';
 
 import ButtonTwo from '../Reusable/ButtonTwo';
-
-import AddressDetails from './AddressDetails';
 
 import DatePicker from "react-datepicker";
 
@@ -15,12 +13,7 @@ import { useFormik } from 'formik';
 
 import * as yup from 'yup';
 
-// For SweetAlert
-// import swal from 'sweetalert';
-
-// import axios from 'axios';
-
-import {Link,Route, Switch} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 // Step-1
 const initialValues = {
@@ -40,15 +33,6 @@ const initialValues = {
     "Error": null,
     "lastupdatedby": "RS",
     "lastupdateddate": "2022-11-01"
-}
-
-
-// Step-2
-const onSubmit = (values,{resetForm}) => {
-    console.log(values);
-
-    // To reset form
-    resetForm({values:""});
 }
 
 // Step-3
@@ -73,24 +57,37 @@ const BasicDetails = (props) => {
     const relationship = ['single','married'];
     const nationality = ['hindu','muslim','christian'];
 
+    // Step-2
+    const onSubmit = (values,{resetForm}) => {
+        // console.log('classs',props.formData.formData);
+
+        // Sending data to Array by Invoking callback function
+        props.formData && props.formData.formData(values);
+
+        // After sending data to Array and navigate to address page
+        props.history.push('/address');
+        
+        // To reset form
+        resetForm({values:""});
+    }
+    
     const {handleChange, handleBlur, handleSubmit, values, setValues, touched, errors} = useFormik({
+
         // ES6 Concise Property
         initialValues,
 
         // Clickable event
         onSubmit,
 
-        // Validation
+        // Form Validation
         validationSchema
     })
 
     // Event Handler as callback function
     const handleDateChange = (date) => {
         setValues({...values,dateborn:date})
-        console.log(date);
+        // console.log(date);
     }
-
-    console.log('hello',props);
 
     return <>
         <p className='lead mx-2'>
@@ -547,23 +544,11 @@ const BasicDetails = (props) => {
                         text = 'edit'
                     />
 
-                    <Link
-                        to='/address'
-                    >
-                        <ButtonTwo
-                            text = 'save & next'
-                            bgColor = 'bgColorValue'
-                            onClickEvent = {handleSubmit}
-                        />
-                    </Link>
-
-                    <Switch>
-                        <Route
-                            path='address'
-                            component={AddressDetails}
-                        >
-                        </Route>
-                    </Switch>
+                    <ButtonTwo
+                        text = 'save & next'
+                        bgColor = 'bgColorValue'
+                        onClickEvent = {handleSubmit}
+                    />
                     
                 </div>
 
@@ -574,4 +559,4 @@ const BasicDetails = (props) => {
     </>
 }
 
-export default BasicDetails;
+export default withRouter(BasicDetails);

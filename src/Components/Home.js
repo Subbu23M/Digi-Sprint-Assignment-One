@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import NavBar from './NavBar';
-
 import Banner from './Banner';
 
 import NewCustomer from './NewCustomer';
@@ -14,7 +12,6 @@ const Home = () => {
     return (
         <>
             {/* Child Component Instances */}
-            {/* <NavBar/> */}
             <Banner/>
             <NewCustomer/>
             <Offer/>

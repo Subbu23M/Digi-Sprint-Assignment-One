@@ -15,7 +15,6 @@ const Banner = () => {
                         className='bannerImage'
                         alt='bannerImage'
                     />
-
                 </div>
                 {/* end of col */}
 

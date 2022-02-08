@@ -2,14 +2,14 @@ import React from 'react';
 
 import {Link,Route,Switch} from 'react-router-dom';
 
-import SideBar from './SideBar';
+import BasicDetails from './BasicDetails';
 
 const NewCustomer = () => {
     return (
         <div className='btnCustomer text-center'>
 
             <Link
-                to='/sideBar'
+                to='/basic'
             >
                 <button
                     className='btn btn-block btn-dark text-light text-capitalize'
@@ -21,8 +21,8 @@ const NewCustomer = () => {
 
             <Switch>
                 <Route
-                    path='/sideBar'
-                    component={SideBar}
+                    path='/basic'
+                    component={BasicDetails}
                     exact
                 >
                 </Route>
@@ -30,6 +30,5 @@ const NewCustomer = () => {
 
         </div>
     )
-};
-
+}
 export default NewCustomer;

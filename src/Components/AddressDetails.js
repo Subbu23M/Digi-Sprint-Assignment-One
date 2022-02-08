@@ -109,8 +109,6 @@ const AddressDetails = (props) => {
         setCustomerZipCode(inputValue);
     }
 
-    console.log(props);
-
     return <>
 
         <section className='outline'>

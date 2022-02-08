@@ -2,8 +2,6 @@ import React from 'react';
 
 import {Link,Route, Switch} from 'react-router-dom';
 
-import Home from './Home';
-
 import BasicDetails from './BasicDetails';
 
 import AddressDetails from './AddressDetails';
@@ -17,10 +15,6 @@ const SideBar = (props) => {
     const removeUnderLine = {
         textDecoration:'none'
     }
-
-    // Object Destructuring - ES6
-    // const {formData} = props;
-    // console.log(props);
 
     return <>
         {/* row */}
@@ -66,34 +60,35 @@ const SideBar = (props) => {
             </div>
             {/* end of col-1 */}
 
-            {/* <Switch>
-
-                <Route
-                    path='/home'
-                    component={Home}
-                    exact
-                />
-
-            </Switch> */}
-
             {/* col-2 */}
             <div className='col-lg-4 mx-auto mt-2'>
 
                 <Switch>
                     <Route
                         path='/basic'
-                        component={BasicDetails}
-                        formData={props.formData}
-                    />
+                    >
+                        <BasicDetails 
+                            formData={props}
+                        />
+                    </Route>
+
                     <Route
                         path='/address'
-                        component={AddressDetails}
-                    />
+                    >
+                        <AddressDetails 
+                            formData={props} 
+                        />
+                    </Route>
+
                     <Route
                         path='/contact'
-                        component={ContactDetails}
-                    />
+                    >
+                        <ContactDetails
+                            formData={props}
+                        />
+                    </Route>
                 </Switch>
+                
             </div>
             {/* end of col-2 */}
 

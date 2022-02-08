@@ -8,20 +8,22 @@ import SideBar from './SideBar';
 
 import Home from './Home';
 
-import { withRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { withRouter } from 'react-router-dom';
 
 import NavBar from './NavBar';
 
 const App = (props) => {
   // State variable and function
   const [formData,setFormData] = useState([]);
+  console.log('formData',formData);
 
+  // Event Handler as callback function to update state from child component.
   const handleSendData = (data) => {
     // Invoke State function
     setFormData([...formData,data]);
-  }
 
-  console.log(props.location);
+    // console.log('message',data);
+  }
 
   return (
     <>
