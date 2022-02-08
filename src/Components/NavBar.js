@@ -12,7 +12,7 @@ import profileIcon from '../Assets/Icons/profile.png';
 
 const NavBar = () => {
     return (
-        <nav>
+        <nav className='navBar'>
 
             {/* row */}
             <div className='row'>
@@ -23,6 +23,7 @@ const NavBar = () => {
                     <img
                         src={hamburgermenu}
                         className='hamburgerMenu'
+                        alt='hamburgermenu'
                     />
 
                 </div>
@@ -46,6 +47,7 @@ const NavBar = () => {
                         <img
                             src={locationPin}
                             className='locationPin mx-2'
+                            alt='locationPin'
                         />
 
                         <h6 className='text-light'>
@@ -63,6 +65,7 @@ const NavBar = () => {
                     <img
                         src={addToCart}
                         className='addToCartIcon'
+                        alt='addToCartIcon'
                     />
 
                 </div>
@@ -74,6 +77,7 @@ const NavBar = () => {
                     <img
                         src={profileIcon}
                         className='profileIcon'
+                        alt='profileIcon'
                     />
 
                 </div>

@@ -70,7 +70,7 @@ const ContactDetails = () => {
         <section className='outline'>
 
             {/* 1 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -113,7 +113,7 @@ const ContactDetails = () => {
             </div>
                 
             {/* 2 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -156,7 +156,7 @@ const ContactDetails = () => {
             </div>
 
             {/* 3 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -181,7 +181,7 @@ const ContactDetails = () => {
             </div>
                 
             {/* 4 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -204,7 +204,7 @@ const ContactDetails = () => {
             </div>
                 
             {/* 5 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'

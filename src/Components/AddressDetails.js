@@ -114,7 +114,7 @@ const AddressDetails = (props) => {
         <section className='outline'>
 
             {/* 1 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -233,7 +233,7 @@ const AddressDetails = (props) => {
             </div>
 
             {/* 6 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
                 <label className='text-capitalize col-sm-5'>
                     <h6>
                         region<span>
@@ -254,7 +254,7 @@ const AddressDetails = (props) => {
             </div>
 
             {/* 7 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
                 <label className='text-capitalize col-sm-5'>
                     <h6>
                         city<span>
@@ -275,7 +275,7 @@ const AddressDetails = (props) => {
             </div>
 
             {/* 8 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -319,7 +319,7 @@ const AddressDetails = (props) => {
             </div>
 
             {/* 9 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'
@@ -363,7 +363,7 @@ const AddressDetails = (props) => {
             </div>
 
             {/* 10 */}
-            <div className='form-group row mb-3'>
+            <div className='form-group row mb-2'>
 
                 <label 
                     className='text-capitalize col-sm-5 col-form-label'

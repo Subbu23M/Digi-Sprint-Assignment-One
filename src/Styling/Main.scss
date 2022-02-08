@@ -34,7 +34,8 @@ li {
         .unOrder {
             width: 104%;
             height: auto;
-            padding: 0.4rem;
+            padding: 0.2rem;
+            margin-left: -0.1rem;
 
             .listIng {
                 width: 100%;
@@ -44,9 +45,14 @@ li {
                 background-color: $commonColor;
 
                 &:hover {
+                    display: block;
+                    // background-color: lemonchiffon;
                     cursor: pointer;
-                    background-color: lemonchiffon;
-                    color: darkgray;
+                    color: black;
+
+                    .iCon {
+                        color: skyblue;
+                    }
                 }
 
                 .iCon {
@@ -75,7 +81,7 @@ li {
     box-shadow: none;
 }
 
-.btn:focus{
+.btn:focus {
     outline: none;
     box-shadow: none;
 }
@@ -97,8 +103,8 @@ li {
 }
 
 // Styles for NavBar component
-nav {
-    // background-color: $headerBar;
+.navBar {
+    background-color: $headerBar;
     padding: 0.5rem;
 
     .hamburgerMenu {
@@ -106,29 +112,30 @@ nav {
         margin-left: 8rem;
         margin-top: 0.4rem;
     }
+
+    // Styles for locationPin
+    .locationPin {
+        height: 30px;
+    }
+
+    // Styles for addToCartIcon
+    .addToCartIcon {
+        height: 30px;
+        background-color: $commonColor;
+        border-radius: 2.2rem;
+        padding: 0.2rem;
+        margin-top: 0.4rem;
+        margin-left: 1rem;
+    }
+
+    // Styles for profileIcon
+    .profileIcon {
+        height: 30px;
+        margin-top: 0.4rem;
+        margin-left: 2rem;
+    }
 }
 
-// Styles for locationPin
-.locationPin {
-    height: 30px;
-}
-
-// Styles for addToCartIcon
-.addToCartIcon {
-    height: 30px;
-    background-color: $commonColor;
-    border-radius: 2.2rem;
-    padding: 0.2rem;
-    margin-top: 0.4rem;
-    margin-left: 1rem;
-}
-
-// Styles for profileIcon
-.profileIcon {
-    height: 30px;
-    margin-top: 0.4rem;
-    margin-left: 2rem;
-}
 
 // Styles for Banner Image
 .bannerImage {
@@ -152,6 +159,7 @@ nav {
 
 // Styles for Offer Component
 .offer {
+
     // Styles for sofaImage
     .sofaImage {
         width: 700px;

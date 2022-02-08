@@ -8,14 +8,14 @@ import SideBar from './SideBar';
 
 // import Home from './Home';
 
-// import NavBar from './NavBar';
+import NavBar from './NavBar';
 
 const App = () => {
   return (
     <>
       {/* Child Component Instances */}
       {/* <Home/> */}
-      {/* <NavBar/> */}
+      <NavBar/>
       <SideBar/>
     </>
   )

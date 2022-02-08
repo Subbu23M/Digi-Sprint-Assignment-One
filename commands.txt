@@ -59,7 +59,18 @@
         .catch((error) => {
             swal(error.message);
         })
-    // To reset form
-    resetForm({values:""});
-
     
+    // Declared & Assigned
+    const baseUrl = 'http://10.192.27.100/api/Customer';
+
+    // Sending Form Data to Backend Server
+    // consuming code
+
+    // State variable & function
+    // const[customerDOB,setCustomerDOB] = useState(null);
+
+    // Event Handler as callback function-7
+    // const handleCustomerDOB = (date) => {
+    //     Invoke state function
+    //     setCustomerDOB(date);
+    // }

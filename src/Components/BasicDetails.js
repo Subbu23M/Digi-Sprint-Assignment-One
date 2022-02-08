@@ -16,9 +16,9 @@ import { useFormik } from 'formik';
 import * as yup from 'yup';
 
 // For SweetAlert
-import swal from 'sweetalert';
+// import swal from 'sweetalert';
 
-import axios from 'axios';
+// import axios from 'axios';
 
 import {Link,Route, Switch} from 'react-router-dom';
 
@@ -46,11 +46,8 @@ const initialValues = {
 const onSubmit = (values,{resetForm}) => {
     console.log(values);
 
-    // Declared & Assigned
-    const baseUrl = 'http://10.192.27.100/api/Customer';
-
-    // Sending Form Data to Backend Server
-    // consuming code
+    // To reset form
+    resetForm({values:""});
 }
 
 // Step-3
@@ -58,13 +55,13 @@ const validationSchema = yup.object({
     custid: yup.string().required('Required'),
     title: yup.string().required('Required'),
     firstname: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-    // middlename: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
     lastname: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-    // alias: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
     dateborn:yup.date().required('Required').nullable(),
     sex: yup.string().required('Required'),
     maritalstat:yup.string().required('Required'),
     nationality:yup.string().required('Required')
+    // alias: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
+    // middlename: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
 })
 
 // Component
@@ -74,15 +71,6 @@ const BasicDetails = (props) => {
     const gender = ['male','female','transgender'];
     const relationship = ['single','married'];
     const nationality = ['hindu','muslim','christian'];
-
-    // State variable & function
-    // const[customerDOB,setCustomerDOB] = useState(null);
-
-    // Event Handler as callback function-7
-    // const handleCustomerDOB = (date) => {
-    //     Invoke state function
-    //     setCustomerDOB(date);
-    // }
 
     const {handleChange, handleBlur, handleSubmit, values, setValues, touched, errors} = useFormik({
         // ES6 Concise Property
@@ -111,7 +99,7 @@ const BasicDetails = (props) => {
             <form autoComplete='off'>
 
                 {/* 1 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
 
                     <label 
                         className='text-capitalize col-sm-5 col-form-label'
@@ -140,17 +128,18 @@ const BasicDetails = (props) => {
                                 (errors.custid && touched.custid) && <span className='text-danger'> {errors.custid} </span>
                             )
                         }
+
                     </div>
 
                 </div>
 
                 {/* 2 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
 
                     <label 
-                        className='text-capitalize col-sm-5 col-form-label'
+                        className='col-sm-5 col-form-label'
                     >
-                        <h5>
+                        <h5 className='text-capitalize'>
                             title<span>
                                 * 
                             </span>
@@ -179,7 +168,6 @@ const BasicDetails = (props) => {
                                             key={index}
                                             value={ele}
                                             className='form-control'
-                                            
                                         >
                                             {ele}
                                         </option>
@@ -199,7 +187,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 3 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
                     <label className='text-capitalize col-sm-5 col-form-label'>
                         <h5>
                             first name<span>
@@ -229,7 +217,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 4 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
                     <label className='text-capitalize col-sm-5'>
                         <h5>
                             middle name
@@ -257,7 +245,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 5 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
                         <label className='text-capitalize col-sm-5'>
                             <h5>
                                 last name<span>
@@ -288,7 +276,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 6 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
                     <label className='text-capitalize col-sm-5'>
                         <h5>
                             alias
@@ -317,7 +305,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 7 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
                     <label className='text-capitalize col-sm-5'>
                         <h5>
                             date of birth<span> * </span>
@@ -353,7 +341,7 @@ const BasicDetails = (props) => {
                 </div>
                 
                 {/* 8 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
 
                     <label 
                         className='text-capitalize col-sm-5 col-form-label'
@@ -406,7 +394,7 @@ const BasicDetails = (props) => {
                 </div>
                 
                 {/* 9 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
 
                     <label 
                         className='text-capitalize col-sm-5 col-form-label'
@@ -458,7 +446,7 @@ const BasicDetails = (props) => {
                 </div>
                 
                 {/* 10 */}
-                <div className='form-group row mb-3'>
+                <div className='form-group row mb-2'>
 
                     <label 
                         className='col-sm-5 col-form-label'
