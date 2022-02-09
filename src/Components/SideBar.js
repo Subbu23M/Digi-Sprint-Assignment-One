@@ -13,7 +13,7 @@ import { SideBarData } from './SideBarData';
 const SideBar = (props) => {
     // Inline CSS
     const removeUnderLine = {
-        textDecoration:'none'
+        textDecoration: 'none'
     }
 
     return <>
@@ -29,7 +29,11 @@ const SideBar = (props) => {
                             SideBarData.map((ele,index) => {
 
                                 // Object Destructuring - ES6
-                                const{title,icon,urlAddress} = ele;
+                                const {
+                                    title,
+                                    icon,
+                                    urlAddress
+                                } = ele;
 
                                 return (
                                     <li

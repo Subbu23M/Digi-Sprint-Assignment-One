@@ -2,7 +2,10 @@ import React from 'react';
 
 const ButtonTwo = (props) => {
     // Object Destructuring - ES6
-    const{text,onClickEvent} = props;
+    const {
+        text,
+        onClickEvent
+    } = props;
 
     return <>
         <button 

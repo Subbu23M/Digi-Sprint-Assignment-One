@@ -6,12 +6,12 @@ import ButtonTwo from '../Reusable/ButtonTwo';
 
 const AddressDetails = (props) => {
     // Declared & Assigned
-    const titles = ['mr','ms','mrs'];
+    const titles = ['mr', 'ms', 'mrs'];
     // const gender = ['male','female','transgender'];
     // const relationship = ['single','married'];
 
     // State variable & function
-    const[customerAddressType,setCustomerAddressType] = useState('');
+    const [customerAddressType, setCustomerAddressType] = useState('');
 
     // Event Handler as callback function-1
     const handleCustomerAddressType = (e) => {
@@ -22,7 +22,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerAddress,setCustomerAddress] = useState('');
+    const [customerAddress, setCustomerAddress] = useState('');
 
     // Event Handler as callback function-2
     const handleCustomerAddress = (e) => {
@@ -33,7 +33,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerColony,setCustomerColony] = useState('');
+    const [customerColony, setCustomerColony] = useState('');
 
     // Event Handler as callback function-3
     const handleCustomerColony = (e) => {
@@ -44,7 +44,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerStreet,setCustomerStreet] = useState('');
+    const [customerStreet, setCustomerStreet] = useState('');
 
     // Event Handler as callback function-4
     const handleCustomerStreet = (e) => {
@@ -55,7 +55,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerRegion,setCustomerRegion] = useState('');
+    const [customerRegion, setCustomerRegion] = useState('');
 
     // Event Handler as callback function-5
     const handleCustomerRegion = (e) => {
@@ -66,7 +66,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerCity,setCustomerCity] = useState('');
+    const [customerCity, setCustomerCity] = useState('');
 
     // Event Handler as callback function-6
     const handleCustomerCity = (e) => {
@@ -77,7 +77,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerState,setCustomerState] = useState('');
+    const [customerState, setCustomerState] = useState('');
 
     // Event Handler as callback function-7
     const handleCustomerState = (e) => {
@@ -88,7 +88,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerCountry,setCustomerCountry] = useState('');
+    const [customerCountry, setCustomerCountry] = useState('');
 
     // Event Handler as callback function-8
     const handleCustomerCountry = (e) => {
@@ -99,7 +99,7 @@ const AddressDetails = (props) => {
     }
 
     // State variable & function
-    const[customerZipCode,setCustomerZipCode] = useState('');
+    const [customerZipCode, setCustomerZipCode] = useState('');
 
     // Event Handler as callback function-9
     const handleCustomerZipCode = (e) => {
@@ -402,7 +402,6 @@ const AddressDetails = (props) => {
             </div>
 
         </section>
-        
     </>
 }
 export default AddressDetails;

@@ -14,13 +14,13 @@ import NavBar from './NavBar';
 
 const App = (props) => {
   // State variable and function
-  const [formData,setFormData] = useState([]);
-  console.log('formData',formData);
+  const [formData, setFormData] = useState([]);
+  console.log('formData', formData);
 
   // Event Handler as callback function to update state from child component.
   const handleSendData = (data) => {
     // Invoke State function
-    setFormData([...formData,data]);
+    setFormData([...formData, data]);
 
     // console.log('message',data);
   }

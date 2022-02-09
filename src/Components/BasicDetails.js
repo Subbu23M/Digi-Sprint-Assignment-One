@@ -41,10 +41,10 @@ const validationSchema = yup.object({
     title: yup.string().required('Required'),
     firstname: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
     lastname: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
-    dateborn:yup.date().required('Required').nullable(),
+    dateborn: yup.date().required('Required').nullable(),
     sex: yup.string().required('Required'),
-    maritalstat:yup.string().required('Required'),
-    nationality:yup.string().required('Required')
+    maritalstat: yup.string().required('Required'),
+    nationality: yup.string().required('Required')
     // alias: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
     // middlename: yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required('Required'),
 })
@@ -52,13 +52,15 @@ const validationSchema = yup.object({
 // Component
 const BasicDetails = (props) => {
     // Declared & Assigned
-    const titles = ['mr','ms','mrs'];
-    const gender = ['male','female','transgender'];
-    const relationship = ['single','married'];
-    const nationality = ['hindu','muslim','christian'];
+    const titles = ['mr', 'ms', 'mrs'];
+    const gender = ['male', 'female', 'transgender'];
+    const relationship = ['single', 'married'];
+    const nationality = ['hindu', 'muslim', 'christian'];
 
     // Step-2
-    const onSubmit = (values,{resetForm}) => {
+    const onSubmit = (values, {
+        resetForm
+    }) => {
         // console.log('classs',props.formData.formData);
 
         // Sending data to Array by Invoking callback function
@@ -66,12 +68,13 @@ const BasicDetails = (props) => {
 
         // After sending data to Array and navigate to address page
         props.history.push('/address');
-        
+
         // To reset form
-        resetForm({values:""});
+        resetForm({
+            values: ""
+        });
     }
-    
-    const {handleChange, handleBlur, handleSubmit, values, setValues, touched, errors} = useFormik({
+    const {handleChange, handleBlur, handleSubmit, values, setValues,errors} = useFormik({
 
         // ES6 Concise Property
         initialValues,
@@ -98,6 +101,11 @@ const BasicDetails = (props) => {
 
             <form autoComplete='off'>
 
+                {/* Conditional Rendering Simple...if, Display error message for all inputs */}
+                {
+                    (Object.keys(errors).length === 0 ? null : <span className='text-danger'> Required </span> )
+                }
+
                 {/* 1 */}
                 <div className='form-group row mb-2'>
 
@@ -120,13 +128,6 @@ const BasicDetails = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.custid && touched.custid) && <span className='text-danger'> {errors.custid} </span>
-                            )
-                        }
                     </div>
                 </div>
 
@@ -169,13 +170,6 @@ const BasicDetails = (props) => {
                                 })
                             }
                         </select>
-
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.title && touched.title) && <span className='text-danger'> {errors.title} </span> 
-                            )
-                        }
                     </div>
 
                 </div>
@@ -202,13 +196,6 @@ const BasicDetails = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.firstname && touched.firstname) && <span className='text-danger'> {errors.firstname} </span>
-                            )
-                        }
                     </div>
                 </div>
 
@@ -232,13 +219,6 @@ const BasicDetails = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.middlename && touched.middlename) && <span className='text-danger'> {errors.middlename} </span>
-                            )
-                        }
                     </div>
                 </div>
 
@@ -264,13 +244,6 @@ const BasicDetails = (props) => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                         />
-
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.lastname && touched.lastname) && <span className='text-danger'> {errors.lastname} </span>
-                            )
-                        }
                     </div>
                 </div>
 
@@ -295,12 +268,7 @@ const BasicDetails = (props) => {
                             onBlur={handleBlur}
                         />
 
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.alias && touched.alias) && <span className='text-danger'> {errors.alias} </span>
-                            )
-                        }
+                        
                     </div>
                 </div>
 
@@ -333,14 +301,6 @@ const BasicDetails = (props) => {
                             scrollableMonthYearDropdown
                             // control='date'
                         />
-
-                        
-                        {/* Conditional Rendering Simple...if */}
-                        {
-                            (
-                                (errors.dateborn && touched.dateborn) && <span className='text-danger'> {errors.dateborn} </span>
-                            )
-                        }
                     </div>
                 </div>
 
@@ -383,13 +343,6 @@ const BasicDetails = (props) => {
                                 })
                             }
                         </select>
-
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.sex && touched.sex) && <span className='text-danger'> {errors.sex} </span> 
-                            )
-                        }
                     </div>
                 </div>
 
@@ -432,13 +385,6 @@ const BasicDetails = (props) => {
                                 })
                             }
                         </select>
-
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.maritalstat && touched.maritalstat) && <span className='text-danger'> {errors.maritalstat} </span> 
-                            )
-                        }
                     </div>
                 </div>
 
@@ -481,13 +427,6 @@ const BasicDetails = (props) => {
                                 })
                             }
                         </select>
-
-                        {/* Conditional Rendering - Simple...if */}
-                        {
-                            (
-                                (errors.nationality && touched.nationality) && <span className='text-danger'> {errors.nationality} </span> 
-                            )
-                        }
                     </div>
                 </div>
 

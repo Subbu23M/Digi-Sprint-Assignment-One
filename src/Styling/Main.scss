@@ -59,13 +59,12 @@ li {
 
                 &:hover {
                     display: block;
-                    // background-color: lemonchiffon;
                     cursor: pointer;
                     color: black;
 
                     .iCon {
                         color: skyblue;
-                    }
+                    }    
                 }
 
                 .iCon {
@@ -86,10 +85,6 @@ li {
     }
 }
 
-.widthDrop {
-    width: 220px;
-}
-
 .btnSpace {
     margin-right: 12px;
 }
@@ -99,7 +94,7 @@ li {
     border: 2px solid gainsboro;
 
     padding: 1rem;
-    margin-bottom: 1rem;
+    // margin-bottom: 1rem;
 }
 
 // Styles for NavBar component

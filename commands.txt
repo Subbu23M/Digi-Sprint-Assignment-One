@@ -74,3 +74,77 @@
     //     Invoke state function
     //     setCustomerDOB(date);
     // }
+
+    ${location.pathname === '/basic' ? 'demo':''}`}
+
+    touched
+
+    (
+                            (errors.custid && touched.custid || (errors.alias && touched.alias) ) && <span className='text-danger'> {errors.custid} {errors.alias} </span>
+                        )
+
+                        {/* Conditional Rendering - Simple...if */}
+                        {
+                            (
+                                (errors.title && touched.title) && <span className='text-danger'> {errors.title} </span> 
+                            )
+                        }
+
+                        {/* Conditional Rendering Simple...if */}
+                        {
+                            (
+                                (errors.firstname && touched.firstname) && <span className='text-danger'> {errors.firstname} </span>
+                            )
+                        }
+
+                        {/* Conditional Rendering Simple...if */}
+                        {
+                            (
+                                (errors.middlename && touched.middlename) && <span className='text-danger'> {errors.middlename} </span>
+                            )
+                        }
+
+                        {/* Conditional Rendering Simple...if */}
+                        {
+                            (
+                                (errors.lastname && touched.lastname) && <span className='text-danger'> {errors.lastname} </span>
+                            )
+                        }
+
+                        {/* Conditional Rendering Simple...if */}
+                        {
+                            (
+                                (errors.alias && touched.alias) && <span className='text-danger'> {errors.alias} </span>
+                            )
+                        }
+                        {/* Conditional Rendering Simple...if */}
+                        {
+                            (
+                                (errors.dateborn && touched.dateborn) && <span className='text-danger'> {errors.dateborn} </span>
+                            )
+                        }
+
+                        {/* Conditional Rendering - Simple...if */}
+                        {
+                            (
+                                (errors.sex && touched.sex) && <span className='text-danger'> {errors.sex} </span> 
+                            )
+                        }
+
+                        {/* Conditional Rendering - Simple...if */}
+                        {
+                            (
+                                (errors.maritalstat && touched.maritalstat) &&  
+                            )
+                        }
+
+                        {/* Conditional Rendering - Simple...if */}
+                        {
+                            (
+                                (errors.nationality && touched.nationality) && <span className='text-danger'> {errors.nationality} </span> 
+                            )
+                        }
+
+                        :active{
+                    background-color: red!important;
+                }

@@ -13,6 +13,6 @@ const jsx = (
     </BrowserRouter>
 )
 
-ReactDOM.render(
-    jsx,rootElement
-);
+// ReactDOM.render(
+//     jsx,rootElement
+// );

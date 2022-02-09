@@ -1,0 +1,167 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+li {
+  list-style-type: none;
+}
+
+.btnColor {
+  background-color: #47426e;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.btn:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.sideBarParent {
+  width: 100vw;
+  height: 50vh;
+  background-color: white;
+}
+
+.sideBarParent .sideBarChild {
+  width: 380px;
+  height: auto;
+  background-color: #e5e5e5;
+}
+
+.sideBarParent .sideBarChild .unOrder {
+  width: 104%;
+  height: auto;
+  padding: 0.2rem;
+  margin-left: -0.1rem;
+}
+
+.sideBarParent .sideBarChild .unOrder .listIng {
+  width: 100%;
+  height: 50px;
+  margin-top: 1rem;
+  color: white;
+  background-color: #c4c4c4;
+}
+
+.sideBarParent .sideBarChild .unOrder .listIng:hover {
+  display: block;
+  cursor: pointer;
+  color: black;
+}
+
+.sideBarParent .sideBarChild .unOrder .listIng:hover .iCon {
+  color: skyblue;
+}
+
+.sideBarParent .sideBarChild .unOrder .listIng .iCon {
+  -webkit-box-flex: 30%;
+      -ms-flex: 30%;
+          flex: 30%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.sideBarParent .sideBarChild .unOrder .listIng .tItle {
+  -webkit-box-flex: 70%;
+      -ms-flex: 70%;
+          flex: 70%;
+}
+
+.btnSpace {
+  margin-right: 12px;
+}
+
+.outline {
+  border: 2px solid gainsboro;
+  padding: 1rem;
+}
+
+.navBar {
+  background-color: #335D8C;
+  padding: 0.5rem;
+}
+
+.navBar .hamburgerMenu {
+  height: 33px;
+  margin-left: 8rem;
+  margin-top: 0.4rem;
+}
+
+.navBar .locationPin {
+  height: 30px;
+}
+
+.navBar .addToCartIcon {
+  height: 30px;
+  background-color: #c4c4c4;
+  border-radius: 2.2rem;
+  padding: 0.2rem;
+  margin-top: 0.4rem;
+  margin-left: 1rem;
+}
+
+.navBar .profileIcon {
+  height: 30px;
+  margin-top: 0.4rem;
+  margin-left: 2rem;
+}
+
+.bannerImage {
+  width: 1367px;
+  height: 500px;
+}
+
+.btnCustomer {
+  background-color: #47426e;
+  padding: 1.4rem;
+}
+
+.btnCustomer .btn {
+  border-radius: 25px;
+  width: 250px;
+  height: 50px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.offer .sofaImage {
+  width: 700px;
+  margin-left: 6rem;
+  height: 400px;
+}
+
+.offer .wowImage {
+  width: 200px;
+  height: 100px;
+  margin-bottom: 7rem;
+}
+
+.offer .exciteImage {
+  width: 250px;
+  height: 220px;
+}
+
+.offer .headerFour {
+  margin-bottom: 7rem;
+  font-size: 2rem;
+}
+
+footer {
+  background-color: #c4c4c4;
+  padding: 0.2rem;
+}
+/*# sourceMappingURL=Main.css.map */

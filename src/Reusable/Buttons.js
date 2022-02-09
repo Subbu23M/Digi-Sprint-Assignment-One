@@ -2,7 +2,9 @@ import React from 'react';
 
 const Buttons = (props) => {
     // Object Destructuring - ES6
-    const{text} = props;
+    const {
+        text
+    } = props;
 
     return <>
         <button 

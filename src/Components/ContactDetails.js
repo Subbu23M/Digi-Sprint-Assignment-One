@@ -4,14 +4,14 @@ import Buttons from '../Reusable/Buttons';
 
 import ButtonTwo from '../Reusable/ButtonTwo';
 
-const ContactDetails = () => {
+const ContactDetails = (props) => {
     // Declared & Assigned
-    const titles = ['mr','ms','mrs'];
+    const titles = ['mr', 'ms', 'mrs'];
     // const gender = ['male','female','transgender'];
     // const relationship = ['single','married'];
 
     // State variable & function
-    const[customerTelephoneType,setCustomerTelephoneType] = useState('');
+    const [customerTelephoneType, setCustomerTelephoneType] = useState('');
 
     // Event Handler as callback function-1
     const handleCustomerTelephoneType = (e) => {
@@ -22,7 +22,7 @@ const ContactDetails = () => {
     }
 
     // State variable & function
-    const[customerCountryCode,setCustomerCountryCode] = useState('');
+    const [customerCountryCode, setCustomerCountryCode] = useState('');
 
     // Event Handler as callback function-2
     const handleCustomerCountryCode = (e) => {
@@ -33,7 +33,7 @@ const ContactDetails = () => {
     }
 
     // State variable & function
-    const[customerPhoneNumber,setCustomerPhoneNumber] = useState('');
+    const [customerPhoneNumber, setCustomerPhoneNumber] = useState('');
 
     // Event Handler as callback function-3
     const handleCustomerPhoneNumber = (e) => {
@@ -44,7 +44,7 @@ const ContactDetails = () => {
     }
 
     // State variable & function
-    const[customerExtensionNumber,setCustomerExtensionNumber] = useState('');
+    const [customerExtensionNumber, setCustomerExtensionNumber] = useState('');
 
     // Event Handler as callback function-4
     const handleCustomerExtensionNumber = (e) => {
@@ -55,7 +55,7 @@ const ContactDetails = () => {
     }
 
     // State variable & function
-    const[customerEmailId,setCustomerEmailId] = useState('');
+    const [customerEmailId, setCustomerEmailId] = useState('');
 
     // Event Handler as callback function-5
     const handleCustomerEmailId = (e) => {
