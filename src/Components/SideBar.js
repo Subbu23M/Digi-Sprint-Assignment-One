@@ -68,7 +68,7 @@ const SideBar = (props) => {
                         path='/basic'
                     >
                         <BasicDetails 
-                            formData={props}
+                            formData={props.formData}
                         />
                     </Route>
 
@@ -76,7 +76,7 @@ const SideBar = (props) => {
                         path='/address'
                     >
                         <AddressDetails 
-                            formData={props} 
+                            formData={props.formData} 
                         />
                     </Route>
 
@@ -84,11 +84,11 @@ const SideBar = (props) => {
                         path='/contact'
                     >
                         <ContactDetails
-                            formData={props}
+                            formData={props.formData}
                         />
                     </Route>
                 </Switch>
-                
+
             </div>
             {/* end of col-2 */}
 

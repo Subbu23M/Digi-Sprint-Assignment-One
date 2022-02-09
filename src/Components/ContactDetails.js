@@ -73,18 +73,18 @@ const ContactDetails = () => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         telephone type<span>
                             * 
                         </span>
-                    </h6>
+                    </h5>
                 </label>
 
                 <div className='col-sm-7'>
                     <select
-                        className='form-control widthDrop'
+                        className='form-control'
                         value={customerTelephoneType}
                         onChange={handleCustomerTelephoneType}
                     >
@@ -116,13 +116,13 @@ const ContactDetails = () => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         dail code / country code<span>
                             * 
                         </span>
-                    </h6>
+                    </h5>
                 </label>
 
                 <div className='col-sm-7'>
@@ -159,13 +159,13 @@ const ContactDetails = () => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         phone number<span>
                             * 
                         </span>
-                    </h6>
+                    </h5>
                                 
                 </label>
 
@@ -184,11 +184,11 @@ const ContactDetails = () => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         extension no.
-                    </h6>
+                    </h5>
                                 
                 </label>
 
@@ -207,13 +207,13 @@ const ContactDetails = () => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         email <span className='text-uppercase'>
                                 id 
                         </span>
-                    </h6>
+                    </h5>
                                 
                 </label>
 

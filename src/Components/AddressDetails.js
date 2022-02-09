@@ -117,9 +117,9 @@ const AddressDetails = (props) => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h5>
+                    <h5 className='text-capitalize'>
                         address type<span>
                             * 
                         </span>
@@ -161,33 +161,33 @@ const AddressDetails = (props) => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-8 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         use my current <br/> location
-                    </h6>
+                    </h5>
                                 
                 </label>
 
-                <div className='col-sm-4 my-1'>
-                    <i className="fas fa-map-marker text-danger fa-2x"></i>
+                <div className='col-sm-7 text-center'>
+                    <i className="fas fa-map-marker text-center text-danger fa-2x"></i>
                 </div>
                         
             </div>
 
             {/* 3 */}
             <div className='form-group row mb-2'>
-                <label className='text-capitalize col-sm-5'>
-                    <h6>
+                <label className='col-sm-5'>
+                    <h5 className='text-capitalize'>
                         flat / house no. / building
-                    </h6> 
+                    </h5> 
                 </label>
 
                 <div className='col-sm-7'>
                     <input
                         type='text'
                         className='form-control'
-                            value={customerAddress}
+                        value={customerAddress}
                         onChange={handleCustomerAddress}
                     />
                 </div>
@@ -196,17 +196,17 @@ const AddressDetails = (props) => {
 
             {/* 4 */}
             <div className='form-group row mb-2'>
-                <label className='text-capitalize col-sm-5'>
-                    <h6>
+                <label className='col-sm-5'>
+                    <h5 className='text-capitalize'>
                         colony / <br/> region
-                    </h6> 
+                    </h5> 
                 </label>
 
                 <div className='col-sm-7'>
                     <input
                         type='text'
                         className='form-control'
-                            value={customerColony}
+                        value={customerColony}
                         onChange={handleCustomerColony}
                     />
                 </div>
@@ -215,17 +215,17 @@ const AddressDetails = (props) => {
 
             {/* 5 */}
             <div className='form-group row mb-2'>
-                <label className='text-capitalize col-sm-5'>
-                    <h6>
+                <label className='col-sm-5'>
+                    <h5 className='text-capitalize'>
                         street name / <br/> landmark
-                    </h6> 
+                    </h5> 
                 </label>
 
                 <div className='col-sm-7'>
                     <input
                         type='text'
                         className='form-control'
-                            value={customerStreet}
+                        value={customerStreet}
                         onChange={handleCustomerStreet}
                     />
                 </div>
@@ -234,12 +234,12 @@ const AddressDetails = (props) => {
 
             {/* 6 */}
             <div className='form-group row mb-2'>
-                <label className='text-capitalize col-sm-5'>
-                    <h6>
+                <label className='col-sm-5'>
+                    <h5 className='text-capitalize'>
                         region<span>
                             *
                         </span>
-                    </h6> 
+                    </h5> 
                 </label>
 
                 <div className='col-sm-7'>
@@ -255,12 +255,12 @@ const AddressDetails = (props) => {
 
             {/* 7 */}
             <div className='form-group row mb-2'>
-                <label className='text-capitalize col-sm-5'>
-                    <h6>
+                <label className='col-sm-5'>
+                    <h5 className='text-capitalize'>
                         city<span>
                             *
                         </span>
-                    </h6> 
+                    </h5> 
                 </label>
 
                 <div className='col-sm-7'>
@@ -278,19 +278,19 @@ const AddressDetails = (props) => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         state<span>
                             * 
                         </span>
-                    </h6>
+                    </h5>
                                 
                 </label>
 
                 <div className='col-sm-7'>
                     <select
-                        className='form-control widthDrop'
+                        className='form-control'
                         value={customerState}
                         onChange={handleCustomerState}
                     >
@@ -322,19 +322,19 @@ const AddressDetails = (props) => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         country<span>
                             * 
                         </span>
-                    </h6>
+                    </h5>
                                 
                 </label>
 
                 <div className='col-sm-7'>
                     <select
-                        className='form-control widthDrop'
+                        className='form-control'
                         value={customerCountry}
                         onChange={handleCustomerCountry}
                     >
@@ -366,13 +366,13 @@ const AddressDetails = (props) => {
             <div className='form-group row mb-2'>
 
                 <label 
-                    className='text-capitalize col-sm-5 col-form-label'
+                    className='col-sm-5'
                 >
-                    <h6>
+                    <h5 className='text-capitalize'>
                         zip code<span>
                             * 
                         </span>
-                    </h6>
+                    </h5>
                                 
                 </label>
 
@@ -405,5 +405,4 @@ const AddressDetails = (props) => {
         
     </>
 }
-
 export default AddressDetails;
