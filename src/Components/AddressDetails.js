@@ -1,115 +1,18 @@
-import React,{useState} from 'react';
-
+import React from 'react';
 import Buttons from '../Reusable/Buttons';
-
 import ButtonTwo from '../Reusable/ButtonTwo';
 
 const AddressDetails = (props) => {
     // Declared & Assigned
-    const titles = ['mr', 'ms', 'mrs'];
-    // const gender = ['male','female','transgender'];
-    // const relationship = ['single','married'];
-
-    // State variable & function
-    const [customerAddressType, setCustomerAddressType] = useState('');
-
-    // Event Handler as callback function-1
-    const handleCustomerAddressType = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerAddressType(inputValue);
-    }
-
-    // State variable & function
-    const [customerAddress, setCustomerAddress] = useState('');
-
-    // Event Handler as callback function-2
-    const handleCustomerAddress = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerAddress(inputValue);
-    }
-
-    // State variable & function
-    const [customerColony, setCustomerColony] = useState('');
-
-    // Event Handler as callback function-3
-    const handleCustomerColony = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerColony(inputValue);
-    }
-
-    // State variable & function
-    const [customerStreet, setCustomerStreet] = useState('');
-
-    // Event Handler as callback function-4
-    const handleCustomerStreet = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerStreet(inputValue);
-    }
-
-    // State variable & function
-    const [customerRegion, setCustomerRegion] = useState('');
-
-    // Event Handler as callback function-5
-    const handleCustomerRegion = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerRegion(inputValue);
-    }
-
-    // State variable & function
-    const [customerCity, setCustomerCity] = useState('');
-
-    // Event Handler as callback function-6
-    const handleCustomerCity = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerCity(inputValue);
-    }
-
-    // State variable & function
-    const [customerState, setCustomerState] = useState('');
-
-    // Event Handler as callback function-7
-    const handleCustomerState = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerState(inputValue);
-    }
-
-    // State variable & function
-    const [customerCountry, setCustomerCountry] = useState('');
-
-    // Event Handler as callback function-8
-    const handleCustomerCountry = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerCountry(inputValue);
-    }
-
-    // State variable & function
-    const [customerZipCode, setCustomerZipCode] = useState('');
-
-    // Event Handler as callback function-9
-    const handleCustomerZipCode = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerZipCode(inputValue);
-    }
-
+    const addressType = ['Home', 'Work', 'Office'];
+    const stateValues = ['Maharashtra', 'Uttar Pradesh', 'Chattisgarh'];
+    const countryValues = ['India', 'Barbados', 'Guyana'];
+    
     return <>
+
+        <p className='lead mx-2'>
+            Please provide your address details:            
+        </p>
 
         <section className='outline'>
 
@@ -129,18 +32,16 @@ const AddressDetails = (props) => {
 
                 <div className='col-sm-7'>
                     <select
-                        className='form-control widthDrop'
-                        value={customerAddressType}
-                        onChange={handleCustomerAddressType}
+                        className='form-control'
                     >
 
                         <option>
-                            -- Address Type --
+                            Address Type
                         </option>
 
                         {/* Embed Expression */}
                         {
-                            titles.sort().map((ele,index) => {
+                            addressType.sort().map((ele,index) => {
                                 return(
                                     <option
                                         key={index}
@@ -154,7 +55,6 @@ const AddressDetails = (props) => {
                         }
                     </select>
                 </div>
-                        
             </div>
 
             {/* 2 */}
@@ -187,8 +87,6 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
-                        value={customerAddress}
-                        onChange={handleCustomerAddress}
                     />
                 </div>
                         
@@ -206,8 +104,6 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
-                        value={customerColony}
-                        onChange={handleCustomerColony}
                     />
                 </div>
                         
@@ -225,8 +121,6 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
-                        value={customerStreet}
-                        onChange={handleCustomerStreet}
                     />
                 </div>
                         
@@ -246,8 +140,6 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
-                        value={customerRegion}
-                        onChange={handleCustomerRegion}
                     />
                 </div>
                         
@@ -267,8 +159,6 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
-                        value={customerCity}
-                        onChange={handleCustomerCity}
                     />
                 </div>
                         
@@ -291,17 +181,15 @@ const AddressDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
-                        value={customerState}
-                        onChange={handleCustomerState}
                     >
 
                         <option>
-                            -- Select State --
+                            Select State
                         </option>
 
                         {/* Embed Expression */}
                         {
-                            titles.sort().map((ele,index) => {
+                            stateValues.sort().map((ele,index) => {
                                 return(
                                     <option
                                         key={index}
@@ -335,17 +223,15 @@ const AddressDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
-                        value={customerCountry}
-                        onChange={handleCustomerCountry}
                     >
 
                         <option>
-                            -- Select Country --
+                            Select Country
                         </option>
 
                         {/* Embed Expression */}
                         {
-                            titles.sort().map((ele,index) => {
+                            countryValues.sort().map((ele,index) => {
                                 return(
                                     <option
                                         key={index}
@@ -380,8 +266,6 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
-                        value={customerZipCode}
-                        onChange={handleCustomerZipCode}
                     />
                 </div>
                         

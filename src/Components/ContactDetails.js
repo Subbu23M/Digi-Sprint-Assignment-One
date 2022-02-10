@@ -1,71 +1,16 @@
-import React,{useState} from 'react';
-
+import React from 'react';
 import Buttons from '../Reusable/Buttons';
-
 import ButtonTwo from '../Reusable/ButtonTwo';
 
 const ContactDetails = (props) => {
     // Declared & Assigned
     const titles = ['mr', 'ms', 'mrs'];
     // const gender = ['male','female','transgender'];
-    // const relationship = ['single','married'];
-
-    // State variable & function
-    const [customerTelephoneType, setCustomerTelephoneType] = useState('');
-
-    // Event Handler as callback function-1
-    const handleCustomerTelephoneType = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerTelephoneType(inputValue);
-    }
-
-    // State variable & function
-    const [customerCountryCode, setCustomerCountryCode] = useState('');
-
-    // Event Handler as callback function-2
-    const handleCustomerCountryCode = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerCountryCode(inputValue);
-    }
-
-    // State variable & function
-    const [customerPhoneNumber, setCustomerPhoneNumber] = useState('');
-
-    // Event Handler as callback function-3
-    const handleCustomerPhoneNumber = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerPhoneNumber(inputValue);
-    }
-
-    // State variable & function
-    const [customerExtensionNumber, setCustomerExtensionNumber] = useState('');
-
-    // Event Handler as callback function-4
-    const handleCustomerExtensionNumber = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerExtensionNumber(inputValue);
-    }
-
-    // State variable & function
-    const [customerEmailId, setCustomerEmailId] = useState('');
-
-    // Event Handler as callback function-5
-    const handleCustomerEmailId = (e) => {
-        const inputValue = e.target.value;
-
-        // Invoke state function
-        setCustomerEmailId(inputValue);
-    }
-
     return <>
+
+        <p className='lead mx-2'>
+            Please provide your contact details:            
+        </p>
 
         <section className='outline'>
 
@@ -85,12 +30,9 @@ const ContactDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
-                        value={customerTelephoneType}
-                        onChange={handleCustomerTelephoneType}
                     >
-
                         <option>
-                            -- Telephone --
+                            Telephone
                         </option>
 
                         {/* Embed Expression */}
@@ -127,13 +69,11 @@ const ContactDetails = (props) => {
 
                 <div className='col-sm-7'>
                     <select
-                        className='form-control widthDrop'
-                        value={customerCountryCode}
-                        onChange={handleCustomerCountryCode}
+                        className='form-control'
                     >
 
                         <option>
-                            -- Country Code --
+                            Country Code
                         </option>
 
                         {/* Embed Expression */}
@@ -171,10 +111,8 @@ const ContactDetails = (props) => {
 
                 <div className='col-sm-7'>
                     <input
-                        type='number'
+                        type='text'
                         className='form-control'
-                        value={customerPhoneNumber}
-                        onChange={handleCustomerPhoneNumber}
                     />
                 </div>
                         
@@ -194,10 +132,8 @@ const ContactDetails = (props) => {
 
                 <div className='col-sm-7'>
                     <input
-                        type='number'
+                        type='text'
                         className='form-control'
-                        value={customerExtensionNumber}
-                        onChange={handleCustomerExtensionNumber}
                     />
                 </div>
                         
@@ -211,7 +147,7 @@ const ContactDetails = (props) => {
                 >
                     <h5 className='text-capitalize'>
                         email <span className='text-uppercase'>
-                                id 
+                            id 
                         </span>
                     </h5>
                                 
@@ -221,8 +157,6 @@ const ContactDetails = (props) => {
                     <input
                         type='email'
                         className='form-control'
-                        value={customerEmailId}
-                        onChange={handleCustomerEmailId}
                     />
                 </div>
                         

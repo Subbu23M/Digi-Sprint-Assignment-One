@@ -65,7 +65,7 @@ const SideBar = (props) => {
             {/* end of col-1 */}
 
             {/* col-2 */}
-            <div className='col-lg-4 mx-auto mt-2'>
+            <div className='col-lg-4 leftSpace mt-2'>
 
                 <Switch>
                     <Route

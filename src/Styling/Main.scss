@@ -64,7 +64,7 @@ li {
 
                     .iCon {
                         color: skyblue;
-                    }    
+                    }
                 }
 
                 .iCon {
@@ -83,10 +83,22 @@ li {
             }
         }
     }
+
+    .leftSpace {
+        margin-left: 3rem;
+    }
 }
 
 .btnSpace {
     margin-right: 12px;
+}
+
+.fa-calendar-check {
+    color: darkgray;
+    position: relative;
+    bottom: 30px;
+    left: 190px;
+    font-size: 1.5rem;
 }
 
 .outline {
@@ -153,6 +165,7 @@ li {
 
 // Styles for Offer Component
 .offer {
+
     // Styles for sofaImage
     .sofaImage {
         width: 700px;
@@ -184,3 +197,8 @@ footer {
     background-color: $commonColor;
     padding: 0.2rem;
 }
+
+// .calendar {
+//     min-height: 70px;
+//     height: 20px;
+// }
