@@ -2,10 +2,70 @@ import React from 'react';
 import Buttons from '../Reusable/Buttons';
 import ButtonTwo from '../Reusable/ButtonTwo';
 
+// Modules for Form Validation
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+
+// Step-1
+const initialValues = {
+    "teltype": "",
+    "dialcode": "",
+    "telno": "",
+    "extnno": "",
+    "emailid": "",
+    "createdby": "RS",
+    "Error": "string"
+}
+
+// Step-3
+const validationSchema = yup.object().shape({
+    teltype: yup.string().required(),
+    dialcode: yup.string().required(),
+    telno: yup.string().required().matches(/^[0-9\s]+$/, "Only numbers are allowed for this field"),
+    extnno: yup.string().required(),
+    emailid: yup.string().email('Invalid email').required('Required')
+})
+
+// Component
 const ContactDetails = (props) => {
     // Declared & Assigned
     const titles = ['mr', 'ms', 'mrs'];
-    // const gender = ['male','female','transgender'];
+    const gender = ['male', 'female', 'transgender'];
+
+    // Step-2
+    const onSubmit = (values, {
+        resetForm
+    }) => {
+        // console.log('classs',props.formData.formData);
+
+        // Sending data to Array by Invoking callback function
+        props.formData && props.formData(values);
+
+        // To reset form
+        resetForm({
+            values: ""
+        });
+    }
+
+    const {
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        values,
+        errors,
+        touched
+    } = useFormik({
+
+        // ES6 Concise Property
+        initialValues,
+
+        // Clickable event
+        onSubmit,
+
+        // Form Validation
+        validationSchema
+    })
+
     return <>
 
         <p className='lead mx-2'>
@@ -30,6 +90,10 @@ const ContactDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
+                        name='teltype'
+                        value={values.teltype}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     >
                         <option>
                             Telephone
@@ -50,6 +114,12 @@ const ContactDetails = (props) => {
                             })
                         }
                     </select>
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.teltype && touched.teltype ) && <span className='text-danger marginLeft'> {errors.teltype} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -70,6 +140,10 @@ const ContactDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
+                        name='dialcode'
+                        value={values.dialcode}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     >
 
                         <option>
@@ -78,7 +152,7 @@ const ContactDetails = (props) => {
 
                         {/* Embed Expression */}
                         {
-                            titles.sort().map((ele,index) => {
+                            gender.sort().map((ele,index) => {
                                 return(
                                     <option
                                         key={index}
@@ -91,6 +165,12 @@ const ContactDetails = (props) => {
                             })
                         }
                     </select>
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.dialcode && touched.dialcode ) && <span className='text-danger marginLeft'> {errors.dialcode} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -113,7 +193,17 @@ const ContactDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='telno'
+                        value={values.telno}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.telno && touched.telno ) && <span className='text-danger marginLeft'> {errors.telno} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -134,7 +224,17 @@ const ContactDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='extno'
+                        value={values.extnno}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.extnno && touched.extnno ) && <span className='text-danger marginLeft'> {errors.extnno} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -155,9 +255,19 @@ const ContactDetails = (props) => {
 
                 <div className='col-sm-7'>
                     <input
-                        type='email'
+                        type='text'
                         className='form-control'
+                        name='emailid'
+                        value={values.emailid}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.emailid && touched.emailid ) && <span className='text-danger marginLeft'> {errors.emailid} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -174,6 +284,7 @@ const ContactDetails = (props) => {
                 
                 <ButtonTwo
                     text = 'submit'
+                    onClickEvent = {handleSubmit}
                 />
 
             </div>

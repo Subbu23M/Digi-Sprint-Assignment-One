@@ -16,6 +16,7 @@
 
 6)To install React Date Picker
   npm install react-datepicker --save
+  To uninstall npm uninstall react-datepicker
 
 7)To install axios
   npm install axios
@@ -25,6 +26,10 @@
 
 9)To install moment 
   npm install moment --save
+  npm uninstall moment
+
+10)To install Ant Design DatePicker
+   npm install antd
 
     axios
         .post(baseUrl,values,{

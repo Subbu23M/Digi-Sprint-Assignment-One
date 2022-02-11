@@ -2,11 +2,79 @@ import React from 'react';
 import Buttons from '../Reusable/Buttons';
 import ButtonTwo from '../Reusable/ButtonTwo';
 
+// Modules for Form Validation
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import {withRouter} from 'react-router-dom';
+
+// Step-1
+const initialValues = {
+    'addtype': "",
+    "addr1": "",
+    "addr2": "",
+    "addr3": "",
+    "area": "",
+    "region": "",
+    "city": "",
+    "state": "",
+    "country": "",
+    "zipcode": "",
+    "notes": "Home Address ",
+    "isdefault": "N",
+    "status": "A",
+    "createdby": "RS",
+    "Error": null
+}
+
+// Step-3
+const validationSchema = yup.object().shape({
+    addtype: yup.string().required(),
+    addr1: yup.string().max(60, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
+    addr2: yup.string().max(60, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
+    addr3: yup.string().max(60, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
+    region: yup.string().max(60, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
+    city: yup.string().max(60, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
+    state: yup.string().max(20, 'Too Long!').required(),
+    country: yup.string().max(30, 'Too Long!').required(),
+    zipcode: yup.string().required().matches(/^[0-9\s]+$/, "Only numbers are allowed for this field")
+})
+
+// Component
 const AddressDetails = (props) => {
     // Declared & Assigned
     const addressType = ['Home', 'Work', 'Office'];
     const stateValues = ['Maharashtra', 'Uttar Pradesh', 'Chattisgarh'];
     const countryValues = ['India', 'Barbados', 'Guyana'];
+
+    // Step-2
+    const onSubmit = (values, {
+        resetForm
+    }) => {
+        // console.log('classs',props.formData.formData);
+
+        // Sending data to Array by Invoking callback function
+        props.formData && props.formData(values);
+
+        // After sending data to Array and navigate to address page
+        props.history.push('/contact');
+
+        // To reset form
+        resetForm({
+            values: ""
+        });
+    }
+
+    const {handleChange, handleBlur, handleSubmit, values,errors,touched} = useFormik({
+
+        // ES6 Concise Property
+        initialValues,
+
+        // Clickable event
+        onSubmit,
+
+        // Form Validation
+        validationSchema
+    })
     
     return <>
 
@@ -33,6 +101,10 @@ const AddressDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
+                        name='addtype'
+                        value={values.addtype}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     >
 
                         <option>
@@ -54,6 +126,12 @@ const AddressDetails = (props) => {
                             })
                         }
                     </select>
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.addtype && touched.addtype) && <span className='text-danger marginLeft'> {errors.addtype} </span> 
+                        )
+                    }
                 </div>
             </div>
 
@@ -87,7 +165,17 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='addr1'
+                        value={values.addr1}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.addr1 && touched.addr1 ) && <span className='text-danger marginLeft'> {errors.addr1} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -104,7 +192,17 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='addr2'
+                        value={values.addr2}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.addr2 && touched.addr2 ) && <span className='text-danger marginLeft'> {errors.addr2} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -121,7 +219,17 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='addr3'
+                        value={values.addr3}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.addr3 && touched.addr3 ) && <span className='text-danger marginLeft'> {errors.addr3} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -140,7 +248,17 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='region'
+                        value={values.region}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering Simple...if */}
+                    {
+                        (
+                            (errors.region && touched.region) && <span className='text-danger marginLeft'> {errors.region} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -159,7 +277,17 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='city'
+                        value={values.city}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering Simple...if */}
+                    {
+                        (
+                            (errors.city && touched.city) && <span className='text-danger marginLeft'> {errors.city} </span>
+                        )
+                    }
                 </div>
                         
             </div>
@@ -181,6 +309,10 @@ const AddressDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
+                        name='state'
+                        value={values.state}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     >
 
                         <option>
@@ -202,6 +334,12 @@ const AddressDetails = (props) => {
                             })
                         }
                     </select>
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.state && touched.state) && <span className='text-danger marginLeft'> {errors.state} </span> 
+                        )
+                    }
                 </div>
                         
             </div>
@@ -223,6 +361,10 @@ const AddressDetails = (props) => {
                 <div className='col-sm-7'>
                     <select
                         className='form-control'
+                        name='country'
+                        value={values.country}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     >
 
                         <option>
@@ -244,6 +386,12 @@ const AddressDetails = (props) => {
                             })
                         }
                     </select>
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.country && touched.country) && <span className='text-danger marginLeft'> {errors.country} </span> 
+                        )
+                    }
                 </div>
                         
             </div>
@@ -266,7 +414,17 @@ const AddressDetails = (props) => {
                     <input
                         type='text'
                         className='form-control'
+                        name='zipcode'
+                        value={values.zipcode}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
                     />
+                    {/* Conditional Rendering - Simple...if */}
+                    {
+                        (
+                            (errors.zipcode && touched.zipcode) && <span className='text-danger marginLeft'> {errors.zipcode} </span> 
+                        )
+                    }
                 </div>
                         
             </div>
@@ -282,10 +440,11 @@ const AddressDetails = (props) => {
                 />
                 <ButtonTwo
                     text = 'save & next'
+                    onClickEvent = {handleSubmit}
                 />
             </div>
 
         </section>
     </>
 }
-export default AddressDetails;
+export default withRouter(AddressDetails);

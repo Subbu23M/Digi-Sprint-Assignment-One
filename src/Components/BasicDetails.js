@@ -1,9 +1,10 @@
 import React from 'react';
 import Buttons from '../Reusable/Buttons';
 import ButtonTwo from '../Reusable/ButtonTwo';
-import DatePicker from "react-datepicker";
-import 'react-datepicker/dist/react-datepicker.css';
-import CalendarIcon from './CalendarIcon';
+import 'antd/dist/antd.css';
+import { DatePicker} from 'antd';
+import moment from 'moment';
+
 // Modules for Form Validation
 import { useFormik } from 'formik';
 import * as yup from 'yup';
@@ -31,15 +32,15 @@ const initialValues = {
 
 // Step-3
 const validationSchema = yup.object().shape({
-    custid: yup.string().max(20, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field "),
+    custid: yup.string().max(20, 'Too Long!').required().matches(/^[aA0-zZ9\s]+$/, "Only alphabets and numbers are allowed for this field "),
     title: yup.string().required(),
     firstname: yup.string().max(30, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
     lastname: yup.string().max(30, 'Too Long!').required().matches(/^[aA-zZ\s]+$/, "Only alphabets are allowed for this field"),
     dateborn: yup.date().required().nullable(),
     sex: yup.string().required(),
-    maritalstat: yup.string().required(),
-    nationality: yup.string().required()
-})
+    maritalstat: yup.string().required('Required field'),
+    nationality: yup.string().required('Required field')
+}) 
 
 // Component
 const BasicDetails = (props) => {
@@ -81,7 +82,7 @@ const BasicDetails = (props) => {
     // Event Handler as callback function
     const handleDateChange = (date) => {
         setValues({...values,dateborn:date})
-        // console.log(date);
+        console.log(moment(date).format('YY-MM-DD'));
     }
 
     return <>
@@ -118,7 +119,7 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering - Simple...if */}
                         {
                             (
-                                (errors.custid && touched.custid ) && <span className='text-danger'> {errors.custid} </span>
+                                (errors.custid && touched.custid ) && <span className='text-danger marginLeft'> {errors.custid} </span>
                             )
                         }
                     </div>
@@ -166,7 +167,7 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering - Simple...if */}
                         {
                             (
-                                (errors.title && touched.title) && <span className='text-danger'> {errors.title} </span> 
+                                (errors.title && touched.title) && <span className='text-danger  marginLeft'> {errors.title} </span> 
                             )
                         }
                     </div>
@@ -198,7 +199,7 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering Simple...if */}
                         {
                             (
-                                (errors.firstname && touched.firstname) && <span className='text-danger'> {errors.firstname} </span>
+                                (errors.firstname && touched.firstname) && <span className='text-danger marginLeft'> {errors.firstname} </span>
                             )
                         }
                     </div>
@@ -252,7 +253,7 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering Simple...if */}
                         {
                             (
-                                (errors.lastname && touched.lastname) && <span className='text-danger'> {errors.lastname} </span>
+                                (errors.lastname && touched.lastname) && <span className='text-danger marginLeft'> {errors.lastname} </span>
                             )
                         }
                     </div>
@@ -284,7 +285,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 7 */}
-                <div className='form-group row mb-2 calendar'>
+                <div className='form-group row mb-2'>
 
                     <label 
                         className='col-sm-5'
@@ -297,25 +298,18 @@ const BasicDetails = (props) => {
                     <div className='col-sm-7'>
 
                         <DatePicker
-                            selected={(values.dateborn && new Date(values.dateborn)) || null}
-                            placeholderText='DD/MM/YYYY'
-                            onChange={handleDateChange}
-                            dateFormat='dd/MM/yyyy'
                             name='dateborn'
-                            // minDate={new Date()}
-                            // value={formik.values.dateborn}
-                            // onBlur={formik.handleBlur}
-                            className='form-control'
-                            // maxDate={new Date()}
-                            // isClearable
-                            showYearDropdown
-                            scrollableMonthYearDropdown
-                            // control='date'
+                            placeholder='DD/MM/YYYY'
+                            selected={(values.dateborn && new Date(values.dateborn)) || null}
+                            onChange={handleDateChange}
+                            onBlur={handleBlur}
+                            value={values.dateborn}
                         />
+    
                         {/* Conditional Rendering Simple...if */}
                         {
                             (
-                                (errors.dateborn && touched.dateborn) && <span className='text-danger'> {errors.dateborn} </span>
+                                (errors.dateborn && touched.dateborn) && <span className='text-danger marginLeft'> {errors.dateborn} </span>
                             )
                         }
                         {/* <CalendarIcon/> */}
@@ -323,7 +317,7 @@ const BasicDetails = (props) => {
                 </div>
 
                 {/* 8 */}
-                <div className='row mb-2'>
+                <div className='form-group row mb-2'>
 
                     <label className='col-sm-5'>
                         <h5 className='text-capitalize'>
@@ -364,14 +358,14 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering - Simple...if */}
                         {
                             (
-                                (errors.sex && touched.sex) && <span className='text-danger'> {errors.sex} </span> 
+                                (errors.sex && touched.sex) && <span className='text-danger marginLeft'> {errors.sex} </span> 
                             )
                         }
                     </div>
                 </div>
 
                 {/* 9 */}
-                <div className='row mb-2'>
+                <div className='form-group row mb-2'>
 
                     <label className='col-sm-5'>
                         <h5 className='text-capitalize'>
@@ -412,14 +406,14 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering - Simple...if */}
                         {
                             (
-                                (errors.maritalstat && touched.maritalstat) && <span className='text-danger'> {errors.maritalstat} </span>  
+                                (errors.maritalstat && touched.maritalstat) && <span className='text-danger marginLeft'> {errors.maritalstat} </span>  
                             )
                         }
                     </div>
                 </div>
 
                 {/* 10 */}
-                <div className='row mb-2'>
+                <div className='form-group row mb-2'>
 
                     <label className='col-sm-5'>
                         <h5 className='text-capitalize'>
@@ -460,7 +454,7 @@ const BasicDetails = (props) => {
                         {/* Conditional Rendering - Simple...if */}
                         {
                             (
-                                (errors.nationality && touched.nationality) && <span className='text-danger'> {errors.nationality} </span> 
+                                (errors.nationality && touched.nationality) && <span className='text-danger marginLeft'> {errors.nationality} </span> 
                             )
                         }
                     </div>

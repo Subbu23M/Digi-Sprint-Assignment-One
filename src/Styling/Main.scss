@@ -12,10 +12,6 @@ body {
     overflow-x: hidden;
 }
 
-li {
-    list-style-type: none;
-}
-
 .btnColor {
     background-color: $btnColor;
 }
@@ -31,6 +27,11 @@ li {
 .btn:focus {
     outline: none;
     box-shadow: none;
+}
+
+.marginLeft {
+    margin-left: 1.3rem;
+    font-size: 1rem;
 }
 
 // Styling for SideBar Component
@@ -79,6 +80,9 @@ li {
 
                 .tItle {
                     flex: 70%;
+                    font-size: 1.2rem;
+                    color: black;
+                    font-weight: 200;
                 }
             }
         }
@@ -91,14 +95,6 @@ li {
 
 .btnSpace {
     margin-right: 12px;
-}
-
-.fa-calendar-check {
-    color: darkgray;
-    position: relative;
-    bottom: 30px;
-    left: 190px;
-    font-size: 1.5rem;
 }
 
 .outline {
@@ -198,7 +194,28 @@ footer {
     padding: 0.2rem;
 }
 
-// .calendar {
-//     min-height: 70px;
-//     height: 20px;
-// }
+// Styles for Calendar Icon
+.ant-picker {
+    width: 220px;
+    height: 40px;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+
+    &:hover {
+        .ant-picker-focused {
+            border-color: none;
+            box-shadow: none;
+            outline: 0;
+        }
+    }
+
+    .ant-picker-suffix {
+        .anticon-calendar {
+            font-size: 1.4rem;
+        }
+    }
+
+    .ant-picker-input>input {
+        font-size: 20px;
+    }
+}
